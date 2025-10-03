@@ -53,11 +53,14 @@ const JumpNav = ({
             {intl.formatMessage(messages['account.settings.section.site.preferences'])}
           </NavHashLink>
         </li>
-        <li>
-          <NavHashLink to="#linked-accounts">
-            {intl.formatMessage(messages['account.settings.section.linked.accounts'])}
-          </NavHashLink>
-        </li>
+        {getConfig().ENABLE_LINKED_ACCOUNTS
+          && (
+          <li>
+            <NavHashLink to="#linked-accounts">
+              {intl.formatMessage(messages['account.settings.section.linked.accounts'])}
+            </NavHashLink>
+          </li>
+        )}
         {getConfig().ENABLE_ACCOUNT_DELETION
           && (
           <li>
