@@ -1,4 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
+import { getConfig } from '@edx/frontend-platform';
 import { siteLanguageListSelector, siteLanguageOptionsSelector } from '../site-language';
 import { compareVerifiedNamesByCreatedDate } from '../../utils';
 
@@ -143,6 +144,11 @@ export const staticFieldsSelector = createSelector(
   mostRecentVerifiedNameSelector,
   (accountSettings, verifiedName) => {
     const staticFields = [];
+    // Add fields from config if present and is an array
+    if (getConfig().ACCOUNT_STATIC_FIELDS && Array.isArray(getConfig().ACCOUNT_STATIC_FIELDS)) {
+      staticFields.push(...getConfig().ACCOUNT_STATIC_FIELDS);
+    }
+
     if (accountSettings.profileDataManager) {
       staticFields.push('name', 'email', 'country');
     }
@@ -150,7 +156,7 @@ export const staticFieldsSelector = createSelector(
       staticFields.push('verifiedName');
     }
 
-    return staticFields;
+    return Array.from(new Set(staticFields)); // Remove duplicates, if any
   },
 );
 
