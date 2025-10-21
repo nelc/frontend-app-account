@@ -12,6 +12,7 @@ const IntlJumpNav = injectIntl(JumpNav);
 describe('JumpNav', () => {
   mergeConfig({
     ENABLE_ACCOUNT_DELETION: true,
+    ENABLE_LINKED_ACCOUNTS: true,
   });
 
   let props = {};
@@ -71,5 +72,39 @@ describe('JumpNav', () => {
     );
 
     expect(await screen.findByText('Delete My Account')).toBeVisible();
+  });
+  it('should not render LINKED ACCOUNTS link', async () => {
+    setConfig({
+      ENABLE_LINKED_ACCOUNTS: false,
+    });
+
+    render(
+      <IntlProvider locale="en">
+        <AppProvider store={store}>
+          <IntlJumpNav {...props} />
+        </AppProvider>
+      </IntlProvider>,
+    );
+
+    expect(await screen.queryByText('Linked Accounts')).toBeNull();
+  });
+  it('should render LINKED ACCOUNTS link', async () => {
+    setConfig({
+      ENABLE_LINKED_ACCOUNTS: true,
+    });
+
+    props = {
+      ...props,
+    };
+
+    render(
+      <IntlProvider locale="en">
+        <AppProvider store={store}>
+          <IntlJumpNav {...props} />
+        </AppProvider>
+      </IntlProvider>,
+    );
+
+    expect(await screen.findByText('Linked Accounts')).toBeVisible();
   });
 });
