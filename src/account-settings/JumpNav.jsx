@@ -60,7 +60,7 @@ const JumpNav = ({
               {intl.formatMessage(messages['account.settings.section.linked.accounts'])}
             </NavHashLink>
           </li>
-        )}
+          )}
         {getConfig().ENABLE_ACCOUNT_DELETION
           && (
           <li>
