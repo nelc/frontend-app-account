@@ -29,6 +29,7 @@
     "extends @edx/browserslist-config"
   ],
   "dependencies": {
+    "@edunext/frontend-component-extended-fields": "^1.0.8-alpha",
     "@edx/brand": "npm:@openedx/brand-openedx@^1.2.3",
     "@edx/frontend-component-footer": "^14.6.0",
     "@edx/frontend-component-header": "^8.2.1",
