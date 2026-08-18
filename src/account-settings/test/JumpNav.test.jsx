@@ -106,7 +106,7 @@ describe('JumpNav', () => {
     render(
       <IntlProvider locale="en">
         <AppProvider store={store}>
-          <IntlJumpNav {...props} />
+          <JumpNav />
         </AppProvider>
       </IntlProvider>,
     );
@@ -118,14 +118,10 @@ describe('JumpNav', () => {
       ENABLE_LINKED_ACCOUNTS: true,
     });
 
-    props = {
-      ...props,
-    };
-
     render(
       <IntlProvider locale="en">
         <AppProvider store={store}>
-          <IntlJumpNav {...props} />
+          <JumpNav />
         </AppProvider>
       </IntlProvider>,
     );
