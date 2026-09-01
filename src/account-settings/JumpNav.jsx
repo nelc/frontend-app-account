@@ -56,19 +56,20 @@ const JumpNav = () => {
             {intl.formatMessage(messages['account.settings.section.site.preferences'])}
           </NavHashLink>
         </li>
-        <li>
-          <NavHashLink to="#linked-accounts">
-            {intl.formatMessage(messages['account.settings.section.linked.accounts'])}
-          </NavHashLink>
-        </li>
-        {getConfig().ENABLE_ACCOUNT_DELETION
-          && (
+        {getConfig().ENABLE_LINKED_ACCOUNTS && (
+          <li>
+            <NavHashLink to="#linked-accounts">
+              {intl.formatMessage(messages['account.settings.section.linked.accounts'])}
+            </NavHashLink>
+          </li>
+        )}
+        {getConfig().ENABLE_ACCOUNT_DELETION && (
           <li>
             <NavHashLink to="#delete-account">
               {intl.formatMessage(messages['account.settings.jump.nav.delete.account'])}
             </NavHashLink>
           </li>
-          )}
+        )}
       </Scrollspy>
     </div>
   );
