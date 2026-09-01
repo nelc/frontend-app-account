@@ -9,6 +9,10 @@ $fa-font-path: "~font-awesome/fonts";
 @import "./account-settings/style";
 @import "./id-verification/id-verification";
 
+@import "@edx/brand/paragon/fonts";
+@import "@edx/brand/paragon/variables";
+@import "@edx/brand/paragon/overrides";
+
 .word-break-all {
   word-break: break-all !important;
 }
@@ -167,4 +171,3 @@ $fa-font-path: "~font-awesome/fonts";
     margin-bottom: 32px !important;
   }
 }
-
