@@ -92,5 +92,10 @@
     "react-test-renderer": "^18.3.1",
     "reactifex": "1.1.1",
     "redux-mock-store": "1.5.5"
+  },
+  "overrides": {
+    "@edx/frontend-platform": {
+      "axios": "1.20.0"
+    }
   }
 }
